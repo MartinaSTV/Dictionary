@@ -1,0 +1,29 @@
+.searchWord{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__input{
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+    &__button{
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+        background-color: rgb(103, 170, 222);
+        border: none;
+        margin: 0.4rem;
+        border-radius: 2px;
+        box-shadow: 1px 1px grey;
+    }
+    &__button:hover{
+        box-shadow: none;
+        font-weight: 600;
+    }
+    &__wordElem{
+        //align-self: flex-start;
+        
+    }
+
+}

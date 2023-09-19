@@ -5,10 +5,10 @@ import SearchWord from './components/searchWord'
 function App() {
 
   return (
-   <main>
-    <h1>Dictionary</h1>
-    <section><SearchWord/></section>
-    <section><WordList/></section>
+   <main className='app'>
+      <section className='app__wordList'><WordList/></section>
+      <h1 className='app__header'>Dictionary</h1>
+      <section className='app__searchWord'><SearchWord/></section>
    </main>
   )
 }

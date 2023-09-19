@@ -4,3 +4,23 @@
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
 }
+.app{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__header{
+    align-self: center;
+  }
+  &__wordList{
+    margin-right: 0.5rem;
+    border-bottom: 1px solid rgb(112, 112, 200);
+    border-radius: 3px;
+    padding: 0.5rem;
+    box-shadow: 1px 1px 1px 1px grey;
+    margin-top: 0.3rem;
+    position: absolute;
+    right: 0;
+  }
+  
+}
