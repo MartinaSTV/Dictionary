@@ -11,12 +11,15 @@ const reducer = (state = initialstate, action)=>{
                 ...state,
                WordList: [...state.WordList, action.payload]
             }
-// måste fixa remove word, just nu tömmer den
+
         case 'REMOVE_WORD':
+            const removedWord =  state.WordList.findIndex((item)=> item.idDrink === action.payload)
+            const newarray = [...state.WordList]
+            newarray.splice(removedWord, 1)
 
             return{
                 ...state,
-               WordList: []
+               WordList: newarray
             }
         
         default:

@@ -1,43 +1,39 @@
+import { useState } from 'react'
+import './Sass/ResultSearchWord.scss'
 
 const ResultSearchWord = ({word})=>{
+
+    const [isOpen, setIsopend] = useState(false)
+    const [showSynonyms, setShowSynonyms] = useState(false)
+
     console.log(word)
 
-    //sound
-    const srcSound = word.phonetics.map((sound, index)=> { return <audio key={index} controls src={sound.audio}></audio>})
+    //Audio
+    const srcSound = word.phonetics.map((sound, index)=> { return <article key={index}> {sound.audio === '' ? null :<audio  controls src={sound.audio}></audio>} <p>{sound.text}</p></article> })
 
-  
-    //Behövs denna
-    const Meaning = word.meanings.map((meaning)=> {return meaning})
-    const noun = Meaning.map((noun)=>  noun.partOfSpeech
-    )
-    const NounElem = noun.map((n, index)=> { return <p key={index}>{n}</p>})
+    
+    const Meaning = word.meanings.map((meaning, idx)=> {
+        return <article key={ idx }>
+                   
+                    <p>Your Word: { word.word}</p>
+                    <p>{word.license.name}</p>
 
-
-    const definitions =  Meaning.map((mean)=>{return mean.definitions})
-    console.log(definitions[0],'definitions')
-
-    /*  console.log(definition[0].definition,'F'); */ 
-
+                    <p>Part of Speetch: { meaning.partOfSpeech}</p>
+                    <button onClick={ ()=>{ setIsopend(!isOpen)}} >Show Definitions</button>
+                    {isOpen? <ul> { meaning.definitions.map((definition, idx)=> <article key={idx}>
+                            <li>{definition.definition}{definition.example? <p>Example: {definition.example}</p>: null}</li></article> )}</ul>: null}
+                    
+                        <button onClick={ ()=>{ setShowSynonyms(!showSynonyms)}}>Show Synonyms</button>
+                            {showSynonyms? <ol>{meaning.synonyms.map((synonyms, idx) => <li key={idx}>{synonyms}</li>)} </ol>: null}
+                        <h1>Audio</h1>
+                    
+                </article>})
 
     return(
-        <section> 
-            <p>Ord: {word.word}</p>
-            <p>Uttal: {word.phonetic}</p>
-            <p>{word.license.name}</p>
-            <article>
-                { NounElem }
-                <p>Meanings</p>
-                <section></section>
-               
-
-            </article>
-            <article>{srcSound}</article>
-
-
-
+        <section className='SearchWord'>         
+            <article>{ Meaning }</article>
+            <article><h1>Audio</h1>{word.phonetics.length > 0 ? srcSound: null}</article>
         </section>
     )
-
-
 }
 export default ResultSearchWord

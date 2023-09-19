@@ -1,20 +1,23 @@
 import { useState } from "react"
-import { useSelector } from "react-redux"
-
+import { useSelector, useDispatch } from "react-redux"
+import './Sass/WordList.scss'
+import { removeFromList } from "../Redux/Actions"
 const WordList = ()=>{
 
-    const [errorMessage, setErrorMessage] = useState('No word searched yet')
+    const dispatch = useDispatch()
+
+    const [errorMessage, setErrorMessage] = useState('No word added yet')
     const [showList , setShowList ] = useState(false)
 
     const wordList = useSelector((state)=>{ return state.WordList})
     console.log(wordList)
 
-    const listElem = wordList.map((item, idx)=>{ return <section key={idx}><p>{item.word}</p><button>x</button></section> })
+    const listElem = wordList.map((item, idx)=>{ return <section key={idx}><p>{item.word}</p><button onClick={ ()=>{ dispatch(removeFromList(item.id)) }}>x</button></section> })
 
     return(
         <article>
-            <h1 onClick={ ()=>{ setShowList(!showList)}}>Din sök Lista</h1>
-           {showList? <p>{ wordList.length > 0 ? listElem: errorMessage }</p>: null}
+            <h1 onClick={ ()=>{ setShowList(!showList)}}>Dina Favorit ord</h1>
+           {showList?  wordList.length > 0 ? listElem: errorMessage : null}
         </article>
     )
 }
