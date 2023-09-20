@@ -18,7 +18,7 @@ const WordList = ()=>{
 
     return(
         <article className="wordList">
-            <h4 className="wordList__header" onClick={ ()=>{ setShowList(!showList)}}>Dina Favorit ord</h4>
+            <h4 className="wordList__header" onClick={ ()=>{ setShowList(!showList)}}>Your favorite words</h4>
            {showList?  wordList.length > 0 ? listElem: errorMessage : null}
         </article>
     )
