@@ -10,4 +10,10 @@ function removeFromList(word){
         payload: word
     }
 }
-export { addToList, removeFromList }
+function darkMode(bolean){
+    return{
+        type:'DARK_MODE',
+        payload: bolean
+    }
+}
+export { addToList, removeFromList, darkMode }

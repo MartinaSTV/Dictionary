@@ -1,10 +1,17 @@
 
 const initialstate = {
-    WordList: []
+    WordList: [],
+    DarkMode: true
 }
 
 const reducer = (state = initialstate, action)=>{
     switch(action.type){
+
+        case 'DARK_MODE':
+            return{
+                ...state,
+               DarkMode: true
+            }
 
         case 'ADD_WORD':
             return{
@@ -13,7 +20,7 @@ const reducer = (state = initialstate, action)=>{
             }
 
         case 'REMOVE_WORD':
-            const removedWord =  state.WordList.findIndex((item)=> item.idDrink === action.payload)
+            const removedWord =  state.WordList.findIndex((item)=> item.id === action.payload)
             const newarray = [...state.WordList]
             newarray.splice(removedWord, 1)
 

@@ -1,0 +1,16 @@
+.meaning{
+  
+    &__button{
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+        background-color: rgb(103, 170, 222);
+        border: none;
+        margin: 0.4rem;
+        border-radius: 2px;
+        box-shadow: 1px 1px grey;
+    }
+    &__listDefinintion{
+        padding: 0.5rem;
+        border-bottom: 1px solid grey ;
+    }
+}

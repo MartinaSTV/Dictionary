@@ -22,5 +22,43 @@
     position: absolute;
     right: 0;
   }
+  &__button{
+    width:fit-content;   padding: 0.4rem;
+    margin-bottom: 0.4rem;
+    border: none;
+    margin: 0.4rem;
+    border-radius: 2px;
+    box-shadow: 1px 1px grey;
+  }
   
+}
+.light__app{
+  background-color: rgb(92, 81, 81);
+  color: White;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__header{
+    align-self: center;
+  }
+  &__wordList{
+    margin-right: 0.5rem;
+    border-bottom: 1px solid rgb(190, 190, 201);
+    border-radius: 3px;
+    padding: 0.5rem;
+    box-shadow: 1px 1px 1px 1px grey;
+    margin-top: 0.3rem;
+    position: absolute;
+    right: 0;
+  }
+  &__button{
+    width:fit-content;   padding: 0.4rem;
+    margin-bottom: 0.4rem;
+    border: none;
+    margin: 0.4rem;
+    border-radius: 2px;
+    box-shadow: 1px 1px grey;
+  }
+
 }
