@@ -14,14 +14,24 @@
         padding: 0.5rem;
         border-bottom: 1px solid grey ;
     }
+    &__noun{
+        font-weight: 600;
+    }
+    &__speech{
+        padding-left: 0.4rem;
+    }
 }
 .meaning-dark{
-  background-color: aqua;
+  background-color: rgb(69, 72, 75);
+  border-radius: 3px;
+  padding-top: 0.2rem;
+  margin: 0.3rem;
+  color: white;
 
     &__button{
         padding: 0.4rem;
         margin-bottom: 0.4rem;
-        background-color: black;
+        background-color: $buttonDark;
         border: none;
         margin: 0.4rem;
         border-radius: 2px;

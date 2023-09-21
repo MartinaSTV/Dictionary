@@ -6,15 +6,6 @@
         margin: 0;
         margin-bottom: 0.3rem;
     }
-    &__elem{
-        display: flex;
-    }
-    &__button{
-        margin-left: auto;
-        margin-right: 0.2rem;
-        background-color: white;
-        border: none;
-    }
 }
 
 .wordList-dark{
@@ -25,14 +16,6 @@
     &__header{
         margin: 0;
         margin-bottom: 0.3rem;
-    }
-    &__elem{
-        display: flex;
-    }
-    &__button{
-        margin-left: auto;
-        margin-right: 0.2rem;
-        background-color: white;
-        border: none;
+        color: white;
     }
 }

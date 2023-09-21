@@ -13,13 +13,11 @@ const Meanings = ({meaning})=>{
 
     // hämtar bolean
     const darkMode = useSelector((state)=>{ return state.DarkMode})
-    console.log(darkMode)
     
-
     return(
         <article className={ darkMode? `meaning`: `meaning-dark` }>
-             <p>Part of Speetch: { meaning.partOfSpeech}</p>
-             <button className='meaning__button' onClick={ ()=>{ setIsopend(!isOpen)}} >Show Definitions</button>
+             <p className="meaning__speech">Part of Speech: <span className="meaning__noun">{ meaning.partOfSpeech}</span></p>
+             <button className={ darkMode? `meaning__button`: `meaning-dark__button` } onClick={ ()=>{ setIsopend(!isOpen)}} >Show Definitions</button>
                {isOpen? <ul> { meaning.definitions.map((definition, idx)=> <article key={idx}>
                        <li className="meaning__listDefinintion">{definition.definition}
                        {definition.example? <p>Example: {definition.example}</p>: null}
@@ -27,7 +25,7 @@ const Meanings = ({meaning})=>{
                            { definition.antonyms.map((antonyms, idx)=> <p key={idx}>Antonyms:{antonyms}</p>) }
                        </li></article> )}</ul>: null}
                
-               <button className='meaning__button' onClick={ ()=>{ setShowSynonyms(!showSynonyms)}}>Show Synonyms</button>
+               <button className={ darkMode? `meaning__button`: `meaning-dark__button` }  onClick={ ()=>{ setShowSynonyms(!showSynonyms)}}>Show Synonyms</button>
                     {showSynonyms? <ol className='result__synonyms'>{meaning.synonyms.map((synonyms, idx) => <li key={idx}>{synonyms}</li>)} </ol>: null}
         </article>
     )

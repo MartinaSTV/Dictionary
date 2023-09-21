@@ -10,8 +10,6 @@ import FavoriteData from "./FavoriteData"
 const WordList = ()=>{
 
     const darkMode = useSelector((state)=>{ return state.DarkMode})
-    console.log(darkMode)
-
     const [errorMessage, setErrorMessage] = useState('No word added yet')
     const [showList , setShowList ] = useState(false)
 
@@ -21,7 +19,7 @@ const WordList = ()=>{
 
     return(
         <article className={darkMode? "wordList": `wordList-dark`}>
-            <h4 className="wordList__header" onClick={ ()=>{ setShowList(!showList)}}>Your favorite words</h4>
+            <h4 className={darkMode? "wordList__header": 'wordList-dark__header'} onClick={ ()=>{ setShowList(!showList)}}>Your favorite words</h4>
            {showList?  wordList.length > 0 ? listElem: errorMessage : null}
         </article>
     )

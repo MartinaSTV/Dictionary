@@ -1,5 +1,5 @@
+@import'./variables.scss';
 .result{
-   
     &__elem{
         padding: 1rem;
         border-bottom: 1px solid grey;
@@ -9,13 +9,18 @@
     }
     &__phonetics{
         padding-top: 1rem;
+    }
+    &__word{
+        font-weight: 700;
     }
 }
 .result-dark{
-   
+   background-color: $backroundDark;
+   color: white;
+
     &__elem{
         padding: 1rem;
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid  rgba(239, 205, 178, 0.915);
         margin: 0.3rem;
         margin-left: 3rem;
         margin-right: 3rem;
@@ -23,4 +28,9 @@
     &__phonetics{
         padding-top: 1rem;
     }
+    &__word{
+        font-weight: 700;
+        color: white;
+    }
+
 }

@@ -28,9 +28,9 @@ function App() {
 
   return (
    <main className={dark? `app`: `app-dark`}>
-    <button className='app__button' onClick={ darkModeLightMode }>{Toggledark? <p>Light</p>: <p>Dark</p>}</button>
-      <section className='app__wordList'><WordList/></section>
-      <h1 className='app__header'>Dictionary</h1>
+    <button className={dark? 'app__button': 'app-dark__button'} onClick={ darkModeLightMode }>{Toggledark? <p>Light</p>: <p>Dark</p>}</button>
+      <section className={dark?'app__wordList': 'app-dark__wordList'}><WordList/></section>
+      <h1 className={dark? 'app__header': 'app-dark__header'}>Dictionary</h1>
       <section className='app__searchWord'><SearchWord/></section>
    </main>
   )

@@ -1,0 +1,46 @@
+@import'./variables.scss';
+.favoriteData{
+
+    &__elem{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__button{
+        margin-left: auto;
+        background-color: $buttonLigth;
+        border: none;
+        border-radius: 2px;
+    }
+    &__name{
+        border-bottom: 1px solid;
+        border-radius: 2px;
+        padding: 0.3rem;
+        box-shadow: 1px 1px 1px  grey;
+        display: flex;
+    }
+}
+.favoriteData-dark{
+
+    background-color: $backroundDark;
+
+    &__elem{
+        display: flex;
+        flex-direction: column;
+    }
+    &__button{
+        margin-left: auto;
+        background-color: $buttonDark;
+        border: none;
+        border-radius: 2px;
+    }
+    &__name{
+        border-bottom: 1px solid;
+        border-radius: 2px;
+        padding: 0.3rem;
+        box-shadow: 1px 1px 1px  grey;
+        background-color: whitesmoke;
+        display: flex;
+    }
+    
+}

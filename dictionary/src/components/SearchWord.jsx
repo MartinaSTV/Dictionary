@@ -28,15 +28,12 @@ const SearchWord = ()=>{
 
     const WordElem = dictionaryResponse.map((word, idx)=> <ResultSearchWord word={word} key={idx}/>)
 
-    const Ligth = 'searchWord'
-    const Dark = 'searchWord-dark'
-
     return(
-        <section className={darkMode? Ligth: Dark}>
+        <section className={darkMode? 'searchWord' : 'searchWord-dark' }>
             <form  onSubmit={(e)=>{ e.preventDefault()} }>
                 <input className="searchWord__input" placeholder="Search Word" value={ searchWord } type="text" onChange={(e)=> setSearchWord(e.target.value) }/>
-                <button className="searchWord__button" type="submit" onClick={ ()=>{ fetchDictionary( setErrorMessage , setDictionaryResponse, searchWord) } } >Search</button>
-                {dictionaryResponse.length > 0? <button className="searchWord__button" onClick={ ()=>{ dispatch(addToList(favoritWord)) }}>Add word to favorites</button>: null}
+                <button className={darkMode? "searchWord__button": 'searchWord-dark__button'} type="submit" onClick={ ()=>{ fetchDictionary( setErrorMessage , setDictionaryResponse, searchWord) } } >Search</button>
+                {dictionaryResponse.length > 0? <button className={darkMode? "searchWord__button": 'searchWord-dark__button'}  onClick={ ()=>{ dispatch(addToList(favoritWord)) }}>Add word to favorites</button>: null}
             </form>
             <section className="searchWord__wordElem">{ searchWord ? WordElem: erroMessage }</section>
         </section>
