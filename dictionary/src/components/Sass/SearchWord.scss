@@ -3,11 +3,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: aquamarine;
   
     &__input{
         padding: 0.4rem;
         margin-bottom: 0.4rem;
+        border: none;
     }
+   
     &__button{
         padding: 0.4rem;
         margin-bottom: 0.4rem;
@@ -38,6 +41,11 @@
     &__input{
         padding: 0.4rem;
         margin-bottom: 0.4rem;
+        border: none;
+    }
+    &__input[type="text"], textarea{
+       
+      background-color : rgb(239, 225, 225);       
     }
     &__button{
         padding: 0.4rem;

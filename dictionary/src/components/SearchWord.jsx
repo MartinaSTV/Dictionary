@@ -31,7 +31,7 @@ const SearchWord = ()=>{
     return(
         <section className={darkMode? 'searchWord' : 'searchWord-dark' }>
             <form  onSubmit={(e)=>{ e.preventDefault()} }>
-                <input className="searchWord__input" placeholder="Search Word" value={ searchWord } type="text" onChange={(e)=> setSearchWord(e.target.value) }/>
+                <input className={darkMode? "searchWord__input": 'searchWord-dark__input'} placeholder="Search Word" value={ searchWord } type="text" onChange={(e)=> setSearchWord(e.target.value) }/>
                 <button className={darkMode? "searchWord__button": 'searchWord-dark__button'} type="submit" onClick={ ()=>{ fetchDictionary( setErrorMessage , setDictionaryResponse, searchWord) } } >Search</button>
                 {dictionaryResponse.length > 0? <button className={darkMode? "searchWord__button": 'searchWord-dark__button'}  onClick={ ()=>{ dispatch(addToList(favoritWord)) }}>Add word to favorites</button>: null}
             </form>
