@@ -10,7 +10,7 @@ const reducer = (state = initialstate, action)=>{
         case 'DARK_MODE':
             return{
                 ...state,
-               DarkMode: true
+               DarkMode: action.payload
             }
 
         case 'ADD_WORD':

@@ -1,3 +1,4 @@
+@import'./variables.scss';
 .searchWord{
 
     display: flex;
@@ -11,7 +12,7 @@
     &__button{
         padding: 0.4rem;
         margin-bottom: 0.4rem;
-        background-color: rgb(103, 170, 222);
+        background-color: $buttonLigth;
         border: none;
         margin: 0.4rem;
         border-radius: 2px;
@@ -22,8 +23,38 @@
         font-weight: 600;
     }
     &__wordElem{
-        //align-self: flex-start;
-        
+        align-self: flex-start;
+        padding-left: 1rem ;
+    }
+
+}
+.searchWord-dark{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(180, 187, 190);
+
+    &__input{
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+    &__button{
+        padding: 0.4rem;
+        margin-bottom: 0.4rem;
+        background-color: $buttonDark;
+        border: none;
+        margin: 0.4rem;
+        border-radius: 2px;
+        box-shadow: 1px 1px grey;
+    }
+    &__button:hover{
+        box-shadow: none;
+        font-weight: 600;
+    }
+    &__wordElem{
+        align-self: flex-start;
+        padding-left: 1rem ;
     }
 
 }

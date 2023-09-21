@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@100;300&display=swap');
+@import'./components/Sass/variables.scss';
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -14,13 +15,14 @@
   }
   &__wordList{
     margin-right: 0.5rem;
-    border-bottom: 1px solid rgb(112, 112, 200);
+    border-bottom: 1px solid $buttonLigth ;
     border-radius: 3px;
     padding: 0.5rem;
     box-shadow: 1px 1px 1px 1px grey;
     margin-top: 0.3rem;
     position: absolute;
     right: 0;
+    background-color: white;
   }
   &__button{
     width:fit-content;   padding: 0.4rem;
@@ -28,12 +30,13 @@
     border: none;
     margin: 0.4rem;
     border-radius: 2px;
-    box-shadow: 1px 1px grey;
+    box-shadow: 1px 1px ;
+    background: radial-gradient(circle, rgba(252,235,235,1) 0%, rgba(38,95,143,1) 100%);
   }
   
 }
-.light__app{
-  background-color: rgb(92, 81, 81);
+.app-dark{
+  background-color: $backroundDark;
   color: White;
   display: flex;
   flex-direction: column;
@@ -51,6 +54,7 @@
     margin-top: 0.3rem;
     position: absolute;
     right: 0;
+    background-color: white;
   }
   &__button{
     width:fit-content;   padding: 0.4rem;
