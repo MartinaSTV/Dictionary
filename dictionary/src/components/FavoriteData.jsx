@@ -17,7 +17,7 @@ const FavoriteData =({item})=>{
 
     return(
         <section className="favoriteData__elem" >
-            <article className={darkMode? "favoriteData__name": "favoriteData-dark__name"} onClick={ ()=>{  setShowData(!showData)}} >
+            <article data-testid="name" className={darkMode? "favoriteData__name": "favoriteData-dark__name"} onClick={ ()=>{  setShowData(!showData)}} >
                 {item.word}
                  <button className={darkMode? "favoriteData__button": 'favoriteData-dark__button'} onClick={ ()=>{ dispatch(removeFromList(item.id)) }}>X</button>
             </article>

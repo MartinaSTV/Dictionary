@@ -2,18 +2,18 @@
 @import'./components/Sass/variables.scss';
 @import'./components/Sass/variables';
 
-#root {
+.app{
   max-width: 1280px;
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
-}
-.app{
+
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
   background-image: url('./assets/romain.jpg');
   min-height: 100vh;
+
   
   &__header{
     align-self: center;
@@ -37,11 +37,19 @@
     margin: 0.4rem;
     border-radius: 2px;
     box-shadow: 1px 1px ;
-    background: radial-gradient(circle, rgba(252,235,235,1) 0%, rgba(38,95,143,1) 100%);
+    background: radial-gradient(circle, rgba(238,231,231,1) 0%, rgba(57,43,29,1) 100%);
   }
-  
+  &__button:hover{
+    font-weight: 600;
+    box-shadow: none;
+  }
 }
 .app-dark{
+
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+
   background-color: $backroundDark;
   color: White;
   display: flex;
@@ -74,5 +82,8 @@
     border-radius: 2px;
     box-shadow: 1px 1px rgb(79, 72, 72);
   }
-
+  &__button:hover{
+    font-weight: 600;
+    box-shadow: none;
+  }
 }

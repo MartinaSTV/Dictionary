@@ -1,11 +1,13 @@
 @import'./variables.scss';
 .result{
+  width: 100%;
     &__elem{
         padding: 1rem;
         border-bottom: 1px solid grey;
         margin: 0.3rem;
         margin-left: 3rem;
         margin-right: 3rem;
+        width: 100%;
     }
     &__phonetics{
         padding-top: 1rem;
@@ -17,6 +19,7 @@
 .result-dark{
    background-color: $backroundDark;
    color: white;
+   width: 100%;
 
     &__elem{
         padding: 1rem;
@@ -24,6 +27,7 @@
         margin: 0.3rem;
         margin-left: 3rem;
         margin-right: 3rem;
+        width: 100%;
     }
     &__phonetics{
         padding-top: 1rem;

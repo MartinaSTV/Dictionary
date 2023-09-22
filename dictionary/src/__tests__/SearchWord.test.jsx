@@ -19,7 +19,7 @@ describe('SearchWord', () => {
         const button = screen.getByRole('button', {name: /Search/i})
         await user.type(input,'dog')
         await user.click(button)
-        expect( await screen.findAllByText('Your Word: dog', {exact: false})).toHaveLength(1)
+        expect( await screen.findAllByText('dog', {exact: false})).toHaveLength(2)
     });
 
     it('should show error message if empty or wrong word', async () => {

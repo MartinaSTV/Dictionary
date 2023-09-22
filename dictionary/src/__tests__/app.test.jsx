@@ -16,7 +16,7 @@ describe('App', () => {
     const header = screen.getByText('Dictionary', {exact:false})
     expect(header).toBeInTheDocument()
   });
-  it('renders headline', async() => {
+  it('should show data from favorite word', async() => {
     const store = legacy_createStore(
       reducer,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
@@ -28,12 +28,19 @@ describe('App', () => {
 
     await user.type(input, 'hello')
     await user.click(buttonSearch)
-    expect( await screen.findAllByText('Your Word: hello', {exact: false})).toHaveLength(1)
+    expect( await screen.findAllByText('hello', {exact: false})).toHaveLength(2)
     const buttonFavorite = screen.getByRole('button', {name: /Add word to favorites/i})
     await user.click(buttonFavorite )
     const buttonList = screen.getByText('Your favorite words')
     await user.click(buttonList )
-    expect( await screen.findByText('hello', {exact: false})).toHaveLength(2)
-
+    expect( await screen.findAllByText('hello', {exact: false})).toHaveLength(3)
+    expect( await screen.findByRole('button',{name: /X/i}))
+    const buttonWordName = screen.getByTestId('name')
+    await user.click( buttonWordName )
+    expect( await screen.findAllByText('hello', {exact: false})).toHaveLength(5)
+    expect( screen.getAllByRole('button', {name: /Show Definitions/i}) ).toHaveLength(6)
+    const buttonsDefinitions = screen.getAllByRole('button', {name: /Show Definitions/i})
+    await user.click(buttonsDefinitions[3])
+    expect(await screen.findByText( '"Hello!" or an equivalent greeting.', {exact:false}))
   });
 });

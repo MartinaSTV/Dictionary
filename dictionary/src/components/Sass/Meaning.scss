@@ -1,6 +1,10 @@
 @import'./variables.scss';
 .meaning{
-  
+  background-color: $backroundLight;
+  border-radius: 3px;
+  padding-top: 0.2rem;
+  margin: 0.3rem;
+
     &__button{
         padding: 0.4rem;
         margin-bottom: 0.4rem;
@@ -9,6 +13,10 @@
         margin: 0.4rem;
         border-radius: 2px;
         box-shadow: 1px 1px grey;
+    }
+    &__button:hover{
+        font-weight: 600;
+        box-shadow: none;
     }
     &__listDefinintion{
         padding: 0.5rem;
@@ -36,6 +44,10 @@
         margin: 0.4rem;
         border-radius: 2px;
         box-shadow: 1px 1px grey;
+    }
+    &__button:hover{
+        font-weight: 600;
+        box-shadow: none;
     }
     &__listDefinintion{
         padding: 0.5rem;

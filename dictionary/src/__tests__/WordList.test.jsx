@@ -26,4 +26,5 @@ describe('Word List component',() =>{
         await user.click(button)
         expect( screen.getByText('No word added yet')).toBeInTheDocument()
     })
+    
 })
