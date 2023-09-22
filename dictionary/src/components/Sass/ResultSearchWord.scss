@@ -1,6 +1,8 @@
 @import'./variables.scss';
 .result{
   width: 100%;
+  background-color: whitesmoke;
+
     &__elem{
         padding: 1rem;
         border-bottom: 1px solid grey;
@@ -36,5 +38,4 @@
         font-weight: 700;
         color: white;
     }
-
 }

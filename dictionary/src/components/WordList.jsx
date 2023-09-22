@@ -5,7 +5,7 @@ import './Sass/WordList.scss'
 import FavoriteData from "./FavoriteData"
 
 //Här här favoritListan som sparas i redux store
-// set error message lyser rött men jag behöver inte använda den så det är okej.
+// setErrorMessage lyser rött i eslint men jag behöver inte använda den så det är okej.
 
 const WordList = ()=>{
 
@@ -19,7 +19,7 @@ const WordList = ()=>{
 
     return(
         <article className={darkMode? "wordList": `wordList-dark`}>
-            <h4 className={darkMode? "wordList__header": 'wordList-dark__header'} onClick={ ()=>{ setShowList(!showList)}}>Your favorite words</h4>
+            <h4 className={darkMode? "wordList__header": 'wordList-dark__header'} onClick={ ()=>{ setShowList(!showList)}}>Your favorite words {wordList.length < 1 ? null: wordList.length }</h4>
            {showList?  wordList.length > 0 ? listElem: errorMessage : null}
         </article>
     )

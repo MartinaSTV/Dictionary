@@ -1,19 +1,22 @@
 
 const initialstate = {
-    WordList: [],
-    DarkMode: true
+    WordList: [] ,
+    DarkMode: sessionStorage.getItem('boolean') || true
 }
 
 const reducer = (state = initialstate, action)=>{
     switch(action.type){
 
         case 'DARK_MODE':
+            sessionStorage.setItem('boolean', action.payload)
             return{
                 ...state,
                DarkMode: action.payload
             }
 
         case 'ADD_WORD':
+            const words = [...state.WordList, action.payload]
+            sessionStorage.setItem('word', JSON.stringify(words) )
             return{
                 ...state,
                WordList: [...state.WordList, action.payload]

@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { legacy_createStore } from "redux";
 import reducer from '../Redux/reducer';
 
-// för att kolla så att Audio element renderas på sidan så tog jag data-testId så det inte fanns någon ByRole på den.
+// För att kolla så att Audio element renderas på sidan så tog jag data-testId då det inte fanns någon ByRole på den.
 
 describe('ResultSearchWord', () => {
   it('should show all information from API response', async() => {
