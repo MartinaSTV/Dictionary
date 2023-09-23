@@ -14,13 +14,14 @@ const WordList = ()=>{
     const [showList , setShowList ] = useState(false)
 
     const wordList = useSelector((state)=>{ return state.WordList})
+    console.log(wordList)
 
     const listElem = wordList.map((item, idx)=> <FavoriteData key={ idx } item={item}/>)
 
     return(
         <article className={darkMode? "wordList": `wordList-dark`}>
             <h4 className={darkMode? "wordList__header": 'wordList-dark__header'} onClick={ ()=>{ setShowList(!showList)}}>Your favorite words {wordList.length < 1 ? null: wordList.length }</h4>
-           {showList?  wordList.length > 0 ? listElem: errorMessage : null}
+          {showList?  wordList.length > 0 ? listElem: errorMessage : null} 
         </article>
     )
 }

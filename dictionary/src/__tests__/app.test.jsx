@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import { legacy_createStore } from "redux";
 import userEvent from '@testing-library/user-event';
 
+// testa att props skickas, testa enhets tester med jest?. mock API?
+
 describe('App', () => {
   it('should render headline', () => {
     const store = legacy_createStore(

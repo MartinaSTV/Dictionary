@@ -26,6 +26,8 @@ const SearchWord = ()=>{
         id: id
     }
 
+/*     sessionStorage.setItem('dictionaryResponse', JSON.stringify('SearchWord'))
+    const SessionSearchWord = JSON.parse(sessionStorage.getItem(dictionaryResponse)) === null? dictionaryResponse: JSON.parse(sessionStorage.getItem(dictionaryResponse)); */
     const WordElem = dictionaryResponse.map((word, idx)=> <ResultSearchWord word={word} key={idx}/>)
 
     return(

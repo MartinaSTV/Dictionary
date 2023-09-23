@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './App.scss'
 import WordList from './components/WordList'
 import SearchWord from './components/searchWord'
@@ -10,18 +10,16 @@ import { darkMode } from './Redux/Actions'
 function App() {
 
   const dispatch = useDispatch()
-  const [dark, setDark] = useState(true)
+  const dark = useSelector((state)=>{ return state.DarkMode})
   const [Toggledark, setToggleDark] = useState(false)
   
   //toogla mellan mörkt och ljust tema
   const darkModeLightMode = ()=>{
     setToggleDark(!Toggledark)
    if(!Toggledark){ 
-    setDark(false)
     dispatch(darkMode(false))
      } 
      else{
-      setDark(true)
       dispatch(darkMode(true))
      }
   }

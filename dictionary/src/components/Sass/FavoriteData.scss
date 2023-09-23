@@ -10,6 +10,13 @@
         background-color: $buttonLigth;
         border: none;
         border-radius: 2px;
+        height: 1.8rem;
+        align-self: center;
+        box-shadow: 1px 1px grey;
+    }
+    &__button:hover{
+        font-weight: 600;
+        box-shadow: none;
     }
     &__name{
         border-bottom: 1px solid;
@@ -20,6 +27,9 @@
     }
     &__name:hover{
         font-weight: 600;
+    }
+    &__article{
+        display: flex;
     }
 }
 .favoriteData-dark{
@@ -34,6 +44,13 @@
         background-color: $buttonDark;
         border: none;
         border-radius: 2px;
+        height: 1.8rem;
+        align-self: center;
+        box-shadow: 1px 1px white;
+    }
+    &__button:hover{
+        font-weight: 600;
+        box-shadow: none;
     }
     &__name{
         border-bottom: 1px solid;

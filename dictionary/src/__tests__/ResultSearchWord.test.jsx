@@ -9,6 +9,7 @@ import reducer from '../Redux/reducer';
 
 // För att kolla så att Audio element renderas på sidan så tog jag data-testId då det inte fanns någon ByRole på den.
 
+console.log(word)
 describe('ResultSearchWord', () => {
   it('should show all information from API response', async() => {
     const store = legacy_createStore(
@@ -17,6 +18,9 @@ describe('ResultSearchWord', () => {
     );
     render(<Provider store={store}><ResultSearchWord word={word[0]}/></Provider>)
         expect( screen.getByText('hello', {exact: false})).toBeInTheDocument()
+        expect( screen.getByText('CC BY-SA 3.0', {exact: false})).toBeInTheDocument()
+        expect( screen.getByText('https://creativecommons.org/licenses/by-sa/3.0')).toBeInTheDocument()
+        expect( screen.getByText('hə', {exact: false})).toBeInTheDocument()
         expect( screen.getAllByText('Part of Speech:', {exact: false})).toHaveLength(3)
         expect( screen.getAllByRole("button" , {name: /Show Definitions/i})).toHaveLength(3)
         expect( screen.getAllByRole("button" , {name: /Show Synonyms/i})).toHaveLength(3)
@@ -25,7 +29,9 @@ describe('ResultSearchWord', () => {
         const buttonDef = screen.getAllByRole("button", {name: /Show Definitions/i})
         await user.click(buttonDef[0])
         expect(await screen.findByText( 'used as a greeting or to begin a phone conversation.', {exact:false}))
+        expect(await screen.findByText('hello there, Katie!', {exact:false}))
         expect(screen.getAllByTestId("audio")).toHaveLength(2)
+        console.log(screen.getAllByTestId("audio"))
   });
 
 });
