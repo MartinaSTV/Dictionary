@@ -27,4 +27,5 @@ describe('Word List component renders',() =>{
         expect( screen.queryByText('No word added yet')).toBeInTheDocument()
     })
     
+    
 })
