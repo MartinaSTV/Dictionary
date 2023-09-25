@@ -6,6 +6,7 @@ import FavoriteData from "./FavoriteData"
 
 //Här här favoritListan som sparas i redux store
 // setErrorMessage lyser rött i eslint men jag behöver inte använda den så det är okej.
+// Listan skrive sedan ut i komponeneten favoriteData
 
 const WordList = ()=>{
 

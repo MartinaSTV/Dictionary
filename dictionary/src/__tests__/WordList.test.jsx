@@ -6,7 +6,7 @@ import reducer from "../Redux/reducer";
 import { Provider } from "react-redux";
 import userEvent from '@testing-library/user-event'
 
-describe('Word List component',() =>{
+describe('Word List component renders',() =>{
     it('should display favorite word headline',()=>{
         const store = legacy_createStore(
             reducer,
@@ -24,7 +24,7 @@ describe('Word List component',() =>{
         const user = userEvent.setup()
         let button = screen.getByText('Your favorite words')
         await user.click(button)
-        expect( screen.getByText('No word added yet')).toBeInTheDocument()
+        expect( screen.queryByText('No word added yet')).toBeInTheDocument()
     })
     
 })

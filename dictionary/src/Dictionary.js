@@ -1,3 +1,4 @@
+// Om du hinner stoppa att ett tomt ord skickas och ändra även i testet.
 
 const fetchDictionary =  async ( setErrorMessage, setDictionaryResponse, searchWord)=>{
 
