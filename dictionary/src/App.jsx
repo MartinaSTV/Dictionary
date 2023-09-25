@@ -5,7 +5,7 @@ import SearchWord from './components/searchWord'
 import { useState } from 'react'
 import { darkMode } from './Redux/Actions'
 
-// DarkMode boolean sparas i Redux store tillsammans med Favorit listan.
+// DarkMode boolean sparas globalt runt app i Redux store tillsammans med Favorit listan.
 
 function App() {
 

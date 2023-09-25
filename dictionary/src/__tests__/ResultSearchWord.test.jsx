@@ -33,5 +33,14 @@ describe('ResultSearchWord', () => {
         expect(screen.getAllByTestId("audio")).toHaveLength(2)
         console.log(screen.getAllByTestId("audio"))
   });
+  it('should show antonyms from response', async() => {
+    const store = legacy_createStore(
+      reducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
+    );
+    render(<Provider store={store}><ResultSearchWord word={word[0]}/></Provider>)
+        expect( screen.getByText('strong', {exact: false})).toBeInTheDocument()
+        expect( await screen.findAllByText('forceless')).toHaveLength(2)
+  });
 
 });

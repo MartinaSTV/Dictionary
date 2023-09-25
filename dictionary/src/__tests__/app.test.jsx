@@ -7,6 +7,7 @@ import { legacy_createStore } from "redux";
 import userEvent from '@testing-library/user-event';
 
 // testa att props skickas
+// testa antonyms
 
 describe('App', () => {
   it('should render headline', () => {
@@ -106,4 +107,5 @@ describe('App', () => {
   });
 
 });
+
 

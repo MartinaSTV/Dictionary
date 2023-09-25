@@ -31,6 +31,12 @@
     &__article{
         display: flex;
     }
+    &__FavoriteInfoElem{
+        height: 100vh;
+        width: 100%;
+        overflow: scroll;
+        box-sizing: border-box;
+    }
 }
 .favoriteData-dark{
     background-color: $backroundDark;
@@ -63,5 +69,11 @@
     }
     &__name:hover{
         font-weight: 600;
+    }
+    &__FavoriteInfoElem{
+        height: 100vh;
+        width: 100%;
+        overflow: scroll;
+        box-sizing: border-box;
     }
 }

@@ -13,7 +13,7 @@
   position: relative;
   z-index: 1;
   background-image: url('./assets/romain.jpg');
-  //background-repeat: repeat;
+  background-color: whitesmoke;
   
   &__header{
     align-self: center;
@@ -29,6 +29,11 @@
     right: 0;
     background-color: whitesmoke;
     z-index: 2;
+
+    //overflow: scroll;
+    // testar dessa
+    //max-height: 100vh;
+    //box-sizing: border-box;
   }
   &__button{
     width:fit-content;   padding: 0.4rem;
@@ -74,6 +79,11 @@
     right: 0;
     background-color: $backroundDark;
     z-index: 2;
+
+    //overflow: scroll;
+    // testar dessa
+   // max-height: 100vh;
+    //box-sizing: border-box;
   }
   &__button{
     width:fit-content;   padding: 0.4rem;

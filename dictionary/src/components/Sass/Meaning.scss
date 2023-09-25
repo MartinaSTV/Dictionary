@@ -28,6 +28,9 @@
     &__speech{
         padding-left: 0.4rem;
     }
+    &__antonyms{
+        padding: 0.4rem;
+    }
 }
 .meaning-dark{
   background-color: rgb(69, 72, 75);
@@ -44,6 +47,7 @@
         margin: 0.4rem;
         border-radius: 2px;
         box-shadow: 1px 1px grey;
+        border-radius: 2px;
     }
     &__button:hover{
         font-weight: 600;
