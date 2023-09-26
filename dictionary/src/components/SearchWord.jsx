@@ -7,8 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 import './Sass/SearchWord.scss'
 
 /* 
- favorit ord och sökord sparas i redux Store.
-I klicket så hämtas datan från funktionen fetchdictionary som ligger i en annan fil. Datan skrivs ut och loppas ut i Wordelem som i sig använder sig av flera komponenetr för att skriva ut datan. */
+ favorit ord och dess data från APIt sparas i redux Store gloalt runt app.
+I klicket så hämtas datan från funktionen fetchdictionary som ligger i en annan fil. Datan skrivs ut och loppas ut i Wordelem som i sig använder sig av flera komponenetr för att skriva ut datan.
+Resultatet från APIt skrivs ut i ResultSearchWord komponenetn som i sig innehåller fler komponenter */
 
 const SearchWord = ()=>{
 
@@ -35,7 +36,7 @@ const SearchWord = ()=>{
                 <button className={darkMode? "searchWord__button": 'searchWord-dark__button'} type="submit" onClick={ ()=>{ fetchDictionary( setErrorMessage , setDictionaryResponse, searchWord) } } >Search</button>
                 {dictionaryResponse.length > 0? <button className={darkMode? "searchWord__button": 'searchWord-dark__button'}  onClick={ ()=>{ dispatch(addToList(favoritWord)) }}>Add word to favorites</button>: null}
             </form>
-            <section className="searchWord__wordElem">{ searchWord ? WordElem: <p className="searchWord__errorMessage">{erroMessage}</p>  }</section>
+            <section className="searchWord__wordElem">{ dictionaryResponse.length > 0 ? WordElem: <p className="searchWord__errorMessage">{erroMessage}</p>  }</section>
         </section>
     )
 } 

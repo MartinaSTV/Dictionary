@@ -6,14 +6,15 @@ import './Sass/FavoriteData.scss'
 
 const FavoriteData =({item})=>{
 
+    // show data togglar mellan att visa favorit listan och inte visa den.
+     // dispach används för att ta bort ord från favorit lista
     const dispatch = useDispatch()
     const [showData ,setShowData] = useState(false)
 
     const darkMode = useSelector((state)=>{ return state.DarkMode})
 
-   //skriver ut datan igen på favorit från infon i redux
+   //skriver ut datan i komponent på favorit från infon i redux
     const InfoElem = item.response.map((word, idx)=>{ return <ResultSearchWord word={word} key={ idx }/> })
-
 
     return(
         <section className="favoriteData__elem" >

@@ -1,7 +1,7 @@
-// Om du hinner stoppa att ett tomt ord skickas och ändra även i testet.
 
 const fetchDictionary =  async ( setErrorMessage, setDictionaryResponse, searchWord)=>{
 
+  if(searchWord === ''){ return setErrorMessage('Type a word you want information about')}
   try{
     const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
     const response = await fetch(url)
@@ -9,7 +9,8 @@ const fetchDictionary =  async ( setErrorMessage, setDictionaryResponse, searchW
     console.log(data)
     
     if(data.title === 'No Definitions Found'){
-      setErrorMessage("Sorry pal, we couldn't find definitions for the word you were looking for.")
+      console.log(data.message)
+     setErrorMessage(data.message)
     }else{ setDictionaryResponse(data) }
     
   }catch(error){

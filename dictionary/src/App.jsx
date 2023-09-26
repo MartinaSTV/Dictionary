@@ -5,7 +5,8 @@ import SearchWord from './components/searchWord'
 import { useState } from 'react'
 import { darkMode } from './Redux/Actions'
 
-// DarkMode boolean sparas globalt runt app i Redux store tillsammans med Favorit listan.
+// DarkMode boolean sparas globalt runt app i Redux store tillsammans med Favorit ord listan.
+// Eftersom man skulle spara flera saker globalt tänkte jag att det va lättast att göra en redux store.
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
   const dark = useSelector((state)=>{ return state.DarkMode})
   const [Toggledark, setToggleDark] = useState(false)
   
-  //toogla mellan mörkt och ljust tema
+  //Toogla mellan mörkt och ljust tema.
   const darkModeLightMode = ()=>{
     setToggleDark(!Toggledark)
    if(!Toggledark){ 

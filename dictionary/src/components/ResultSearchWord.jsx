@@ -2,13 +2,16 @@ import './Sass/ResultSearchWord.scss'
 import Meaning from './Meaning'
 import { useSelector} from "react-redux"
 
+// skriver ut informationen från APIt på sidan
 const ResultSearchWord = ({word})=>{
 
         const darkMode = useSelector((state)=>{ return state.DarkMode})
 
+        // Loopar ut Audio element på sidan
         const infoElem = word.phonetics.map((sound, index)=> { return <article key={index}>
          {sound.audio === '' ? null : <audio data-testid="audio" controls src={sound.audio}></audio>}</article> })
 
+        // Lopar ut informationen som ligger i meaning på sidan i fler komponeneter.
         const wordElem = word.meanings.map((meaning, i)=> 
             <Meaning  key={i} meaning={ meaning }/> )
        

@@ -4,9 +4,9 @@ import './Sass/WordList.scss'
 import './Sass/WordList.scss'
 import FavoriteData from "./FavoriteData"
 
-//Här här favoritListan som sparas i redux store
-// setErrorMessage lyser rött i eslint men jag behöver inte använda den så det är okej.
-// Listan skrive sedan ut i komponeneten favoriteData
+//Här är favoritListan som sparas i redux store.
+// setErrorMessage lyser rött i eslint men jag behöver inte använda setfunktionen så det är okej.
+// Listan skrivs sedan ut i komponeneten favoriteData
 
 const WordList = ()=>{
 
@@ -15,7 +15,6 @@ const WordList = ()=>{
     const [showList , setShowList ] = useState(false)
 
     const wordList = useSelector((state)=>{ return state.WordList})
-    console.log(wordList)
 
     const listElem = wordList.map((item, idx)=> <FavoriteData key={ idx } item={item}/>)
 

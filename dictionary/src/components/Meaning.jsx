@@ -4,14 +4,13 @@ import './Sass/Meaning.scss'
 import Definitions from "./Definitions"
 
 // I denna komponenten så renderas datan från innehållet meanings
-
 const Meanings = ({meaning})=>{
-   
-    // Toggel visa data på knapp tryck
+  
+    // Toggla mellan att visa data på knapp tryck och dölja på knapptryck
     const [isOpen, setIsopend] = useState(false)
     const [showSynonyms, setShowSynonyms] = useState(false)
 
-    // hämtar bolean
+    // hämtar boolean för light eller dark mode
     const darkMode = useSelector((state)=>{ return state.DarkMode})
   
     return(
@@ -25,7 +24,11 @@ const Meanings = ({meaning})=>{
             <button className={ darkMode? `meaning__button`: `meaning-dark__button` }  onClick={ ()=>{ setShowSynonyms(!showSynonyms)}}>Show Synonyms</button>
             {showSynonyms? <ol className='result__synonyms'>{meaning.synonyms.map((synonyms, idx) => <li key={idx}>{synonyms}</li>)} </ol>: null}
 
-            {meaning? <article className="meaning__antonyms">Antonyms:{ meaning.antonyms.length > 0 ? <ol>{meaning.antonyms.map((antonyms, idx)=> <li key={idx}>{antonyms}</li>)}</ol>: ' No antonyms in exist in this dictionary for this word.'} </article>: null}
+             {/* .length funkare ej i test! Varför?? */}
+            <article className="meaning__antonyms">Antonyms:{ meaning.antonyms ? 
+            <ol>{meaning.antonyms.map((antonyms, idx)=> <li key={idx}>{antonyms}</li>)}</ol>: ' No antonyms exist in this dictionary for this word.'} 
+            </article>
+
         </article>
     )
 }

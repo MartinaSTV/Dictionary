@@ -1,13 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi} from 'vitest';
+import { describe, it, expect} from 'vitest';
 import ResultSearchWord from '../components/ResultSearchWord';
 import word from './responseAPI.json'
+import strong from './testStrong.json'
 import userEvent from '@testing-library/user-event'
 import { Provider } from 'react-redux';
 import { legacy_createStore } from "redux";
 import reducer from '../Redux/reducer';
 
 // För att kolla så att Audio element renderas på sidan så tog jag data-testId då det inte fanns någon ByRole på den.
+// eftersom hello inte hade antonyms så gjorde jag en mock på ordet strong med som innehåller antonyms
 
 console.log(word)
 describe('ResultSearchWord', () => {
@@ -25,34 +27,20 @@ describe('ResultSearchWord', () => {
         expect( screen.getAllByRole("button" , {name: /Show Definitions/i})).toHaveLength(3)
         expect( screen.getAllByRole("button" , {name: /Show Synonyms/i})).toHaveLength(3)
         expect(screen.getAllByTestId("audio")).toHaveLength(2)
-     
+
         const user = userEvent.setup()
         const buttonDef = screen.getAllByRole("button", {name: /Show Definitions/i})
         await user.click(buttonDef[0])
         expect(await screen.findByText( 'used as a greeting or to begin a phone conversation.', {exact:false}))
         expect(await screen.findByText('hello there, Katie!', {exact:false}))
-
-     
-     
   });
-
- /*  it('should show antonyms from response', async() => {
+  it('should show antonyms from response',()=>{
     const store = legacy_createStore(
       reducer,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
     );
-    render(<Provider store={store}><ResultSearchWord word={word[0]}/></Provider>)
-        expect( screen.getByText('strong', {exact: false})).toBeInTheDocument()
-        expect( await screen.findAllByText('forceless')).toHaveLength(2)
-  }); */
-
-/*   it('should recive props', async() => {
-    const store = legacy_createStore(
-      reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
-    );
-    const word = vi.fn()
-    render(<Provider store={store}><ResultSearchWord word={word[0]}/></Provider>)
-  }); */
-
+    render(<Provider store={store}><ResultSearchWord word={strong[0]}/></Provider>)
+    expect( screen.getAllByText('strong', {exact: false})).toHaveLength(2)
+    expect( screen.getByText('forcelessly', {exact: false})).toBeInTheDocument()
+  })
 });

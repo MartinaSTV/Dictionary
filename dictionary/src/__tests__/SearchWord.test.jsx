@@ -51,6 +51,6 @@ describe('SearchWord', () => {
           const user = userEvent.setup()
           const button = screen.getByRole('button', {name: /Search/i})
           await user.click(button)
-          expect(await screen.findByText('Sorry', {exact:false})).toBeInTheDocument()
+          expect(await screen.findByText('Type a word', {exact:false})).toBeInTheDocument()
       });
   });

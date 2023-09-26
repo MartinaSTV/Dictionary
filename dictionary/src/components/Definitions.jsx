@@ -1,5 +1,5 @@
-// Här skrivs definitionerna ut i en lista
 
+// Här skrivs definitionerna ut.
 const Definitions = ({definition})=>{
     
     return(
