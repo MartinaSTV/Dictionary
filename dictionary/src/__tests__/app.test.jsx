@@ -6,9 +6,6 @@ import { Provider } from "react-redux";
 import { legacy_createStore } from "redux";
 import userEvent from '@testing-library/user-event';
 
-// testa att props skickas
-// testa antonyms
-
 describe('App', () => {
   it('should render headline', () => {
     const store = legacy_createStore(
@@ -32,16 +29,20 @@ describe('App', () => {
     await user.type(input, 'hello')
     await user.click(buttonSearch)
     expect( await screen.findAllByText('hello', {exact: false})).toHaveLength(2)
+
     const buttonFavorite = screen.getByRole('button', {name: /Add word to favorites/i})
     await user.click(buttonFavorite )
+
     const buttonList = screen.getByText('Your favorite words 1')
     await user.click(buttonList )
     expect( await screen.findAllByText('hello', {exact: false})).toHaveLength(3)
     expect( await screen.findByRole('button',{name: /X/i}))
+
     const buttonWordName = screen.getByTestId('name')
     await user.click( buttonWordName )
     expect( await screen.findAllByText('hello', {exact: false})).toHaveLength(5)
     expect( screen.getAllByRole('button', {name: /Show Definitions/i}) ).toHaveLength(6)
+
     const buttonsDefinitions = screen.getAllByRole('button', {name: /Show Definitions/i})
     await user.click(buttonsDefinitions[3])
     expect(await screen.findByText( '"Hello!" or an equivalent greeting.', {exact:false}))

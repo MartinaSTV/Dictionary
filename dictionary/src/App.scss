@@ -30,10 +30,6 @@
     background-color: whitesmoke;
     z-index: 2;
 
-    //overflow: scroll;
-    // testar dessa
-    //max-height: 100vh;
-    //box-sizing: border-box;
   }
   &__button{
     width:fit-content;   padding: 0.4rem;
@@ -79,11 +75,6 @@
     right: 0;
     background-color: $backroundDark;
     z-index: 2;
-
-    //overflow: scroll;
-    // testar dessa
-   // max-height: 100vh;
-    //box-sizing: border-box;
   }
   &__button{
     width:fit-content;   padding: 0.4rem;

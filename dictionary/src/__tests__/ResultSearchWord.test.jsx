@@ -11,7 +11,8 @@ import reducer from '../Redux/reducer';
 // För att kolla så att Audio element renderas på sidan så tog jag data-testId då det inte fanns någon ByRole på den.
 // eftersom hello inte hade antonyms så gjorde jag en mock på ordet strong med som innehåller antonyms
 
-console.log(word)
+// testa att props skickas
+
 describe('ResultSearchWord', () => {
   it('should show all information from API response', async() => {
     const store = legacy_createStore(
@@ -43,4 +44,5 @@ describe('ResultSearchWord', () => {
     expect( screen.getAllByText('strong', {exact: false})).toHaveLength(2)
     expect( screen.getByText('forcelessly', {exact: false})).toBeInTheDocument()
   })
+
 });

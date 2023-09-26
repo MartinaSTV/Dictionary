@@ -9,7 +9,7 @@ import './Sass/SearchWord.scss'
 /* 
  favorit ord och dess data från APIt sparas i redux Store gloalt runt app.
 I klicket så hämtas datan från funktionen fetchdictionary som ligger i en annan fil. Datan skrivs ut och loppas ut i Wordelem som i sig använder sig av flera komponenetr för att skriva ut datan.
-Resultatet från APIt skrivs ut i ResultSearchWord komponenetn som i sig innehåller fler komponenter */
+Resultatet från APIt skrivs ut i ResultSearchWord komponenten som i sig innehåller fler komponenter */
 
 const SearchWord = ()=>{
 
