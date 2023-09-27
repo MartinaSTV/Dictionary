@@ -35,10 +35,13 @@ describe('SearchWord', () => {
       render(<Provider store={store}><SearchWord/></Provider>)
         let input = screen.getByRole('textbox')
         expect(input).toBeInTheDocument
+
         const user = userEvent.setup()
         const button = screen.getByRole('button', {name: /Search/i})
+
         await user.type(input,'hello')
         await user.click(button)
+
         expect( await screen.findAllByText('hello', {exact: false})).toHaveLength(1)
     });
 
@@ -50,6 +53,7 @@ describe('SearchWord', () => {
         render(<Provider store={store}><SearchWord/></Provider>)
           const user = userEvent.setup()
           const button = screen.getByRole('button', {name: /Search/i})
+          
           await user.click(button)
           expect(await screen.findByText('Type a word', {exact:false})).toBeInTheDocument()
       });

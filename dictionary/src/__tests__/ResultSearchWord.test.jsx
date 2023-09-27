@@ -39,6 +39,7 @@ describe('ResultSearchWord', () => {
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
     );
     render(<Provider store={store}><ResultSearchWord word={strong[0]}/></Provider>)
+    
     expect( screen.getAllByText('strong', {exact: false})).toHaveLength(2)
     expect( screen.getByText('forcelessly', {exact: false})).toBeInTheDocument()
   })

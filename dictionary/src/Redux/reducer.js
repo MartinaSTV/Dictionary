@@ -1,45 +1,45 @@
 // I initial state sparas information i session stotage eller en tom array och boleanen true som default.
 const initialstate = {
-    WordList:  JSON.parse( sessionStorage.getItem('word')) === null ? [] :JSON.parse( sessionStorage.getItem('word')),
-    DarkMode: JSON.parse( sessionStorage.getItem('boolean')) === null ? true :JSON.parse( sessionStorage.getItem('boolean')) 
+    WordList: JSON.parse(sessionStorage.getItem('word')) === null ? [] : JSON.parse(sessionStorage.getItem('word')),
+    DarkMode: JSON.parse(sessionStorage.getItem('boolean')) === null ? true : JSON.parse(sessionStorage.getItem('boolean'))
 }
 
-const reducer = (state = initialstate, action)=>{
-    switch(action.type){
+const reducer = (state = initialstate, action) => {
+    switch (action.type) {
 
         case 'DARK_MODE':
             sessionStorage.setItem('boolean', JSON.stringify(action.payload))
-            return{
+            return {
                 ...state,
-               DarkMode: action.payload
+                DarkMode: action.payload
             }
 
         case 'ADD_WORD':
 
-            sessionStorage.setItem('word', JSON.stringify( [...state.WordList, action.payload] ))
-            return{
+            sessionStorage.setItem('word', JSON.stringify([...state.WordList, action.payload]))
+            return {
                 ...state,
-               WordList: [...state.WordList, action.payload]
+                WordList: [...state.WordList, action.payload]
             }
 
         case 'REMOVE_WORD':
-            const removedWord =  state.WordList.findIndex((item)=> item.id === action.payload)
+            const removedWord = state.WordList.findIndex((item) => item.id === action.payload)
             const newarray = [...state.WordList]
             newarray.splice(removedWord, 1)
 
             // spara i session storage
-            const WordsInSession =  JSON.parse(sessionStorage.getItem('word')) 
+            const WordsInSession = JSON.parse(sessionStorage.getItem('word'))
             console.log(WordsInSession)
-            const removeWordInSession = WordsInSession.findIndex((item)=> item.id === action.payload)
+            const removeWordInSession = WordsInSession.findIndex((item) => item.id === action.payload)
             const tempArry = [...WordsInSession]
             tempArry.splice(removeWordInSession, 1)
-            sessionStorage.setItem('word', JSON.stringify( tempArry))
-          
-            return{
+            sessionStorage.setItem('word', JSON.stringify(tempArry))
+
+            return {
                 ...state,
-               WordList: newarray
+                WordList: newarray
             }
-        
+
         default:
             return state
     }

@@ -11,33 +11,33 @@ import './Sass/SearchWord.scss'
 I klicket så hämtas datan från funktionen fetchdictionary som ligger i en annan fil. Datan skrivs ut och loppas ut i Wordelem som i sig använder sig av flera komponenetr för att skriva ut datan.
 Resultatet från APIt skrivs ut i ResultSearchWord komponenten som i sig innehåller fler komponenter */
 
-const SearchWord = ()=>{
+const SearchWord = () => {
 
-    const darkMode = useSelector((state)=>{ return state.DarkMode})
-    
+    const darkMode = useSelector((state) => { return state.DarkMode })
+
     const id = uuidv4()
     const dispatch = useDispatch()
     const [searchWord, setSearchWord] = useState('')
-    const [dictionaryResponse , setDictionaryResponse ]= useState([])
+    const [dictionaryResponse, setDictionaryResponse] = useState([])
     const [erroMessage, setErrorMessage] = useState('')
- 
-    const favoritWord ={ 
+
+    const favoritWord = {
         word: searchWord,
         response: dictionaryResponse,
         id: id
     }
 
-    const WordElem = dictionaryResponse.map((word, idx)=> <ResultSearchWord word={word} key={idx}/>)
+    const WordElem = dictionaryResponse.map((word, idx) => <ResultSearchWord word={word} key={idx} />)
 
-    return(
-        <section className={darkMode? 'searchWord' : 'searchWord-dark' }>
-            <form  onSubmit={(e)=>{ e.preventDefault()} }>
-                <input className={darkMode? "searchWord__input": 'searchWord-dark__input'} placeholder="Search Word" value={ searchWord } type="text" onChange={(e)=> setSearchWord(e.target.value) }/>
-                <button className={darkMode? "searchWord__button": 'searchWord-dark__button'} type="submit" onClick={ ()=>{ fetchDictionary( setErrorMessage , setDictionaryResponse, searchWord) } } >Search</button>
-                {dictionaryResponse.length > 0? <button className={darkMode? "searchWord__button": 'searchWord-dark__button'}  onClick={ ()=>{ dispatch(addToList(favoritWord)) }}>Add word to favorites</button>: null}
+    return (
+        <section className={darkMode ? 'searchWord' : 'searchWord-dark'}>
+            <form onSubmit={(e) => { e.preventDefault() }}>
+                <input className={darkMode ? "searchWord__input" : 'searchWord-dark__input'} placeholder="Search Word" value={searchWord} type="text" onChange={(e) => setSearchWord(e.target.value)} />
+                <button className={darkMode ? "searchWord__button" : 'searchWord-dark__button'} type="submit" onClick={() => { fetchDictionary(setErrorMessage, setDictionaryResponse, searchWord) }} >Search</button>
+                {dictionaryResponse.length > 0 ? <button className={darkMode ? "searchWord__button" : 'searchWord-dark__button'} onClick={() => { dispatch(addToList(favoritWord)) }}>Add word to favorites</button> : null}
             </form>
-            <section className="searchWord__wordElem">{ dictionaryResponse.length > 0 ? WordElem: <p className="searchWord__errorMessage">{erroMessage}</p>  }</section>
+            <section className="searchWord__wordElem">{dictionaryResponse.length > 0 ? WordElem : <p className="searchWord__errorMessage">{erroMessage}</p>}</section>
         </section>
     )
-} 
+}
 export default SearchWord

@@ -21,11 +21,11 @@ describe('Word List component renders',() =>{
             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() 
           );
         render(<Provider store={store}><WordList/></Provider>)
+
         const user = userEvent.setup()
         let button = screen.getByText('Your favorite words')
+
         await user.click(button)
         expect( screen.queryByText('No word added yet')).toBeInTheDocument()
     })
-    
-    
 })
