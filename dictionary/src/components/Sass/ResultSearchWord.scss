@@ -22,6 +22,9 @@
     &__word{
         font-weight: 700;
     }
+    &__synonyms{
+        padding-bottom: 0.5rem;
+    }
 }
 .result-dark{
    background-color: $backroundDark;
