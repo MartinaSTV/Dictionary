@@ -67,10 +67,11 @@ describe('App', () => {
 
     const buttonList = screen.getByText('Your favorite words 1')
     await user.click(buttonList)
-
     expect(await screen.findAllByText('hello', { exact: false })).toHaveLength(3)
+
     await user.click(buttonFavorite)
     expect(await screen.findAllByText('hello', { exact: false })).toHaveLength(4)
+
     await user.click(buttonFavorite)
     expect(await screen.findAllByText('hello', { exact: false })).toHaveLength(5)
   });
@@ -91,6 +92,7 @@ describe('App', () => {
 
     const buttonFavorite = screen.getByRole('button', { name: /Add word to favorites/i })
     await user.click(buttonFavorite)
+    
     const buttonList = screen.getByText('Your favorite words 1')
     await user.click(buttonList)
     expect(await screen.findAllByText('hello', { exact: false })).toHaveLength(3)

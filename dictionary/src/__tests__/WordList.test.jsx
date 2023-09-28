@@ -6,6 +6,7 @@ import reducer from "../Redux/reducer";
 import { Provider } from "react-redux";
 import userEvent from '@testing-library/user-event'
 
+// att kunna ta bort och lägga till ord i listans testas i app test då den går igenom hela sida.
 describe('Word List component renders',() =>{
     it('should display favorite word headline',()=>{
         const store = legacy_createStore(
