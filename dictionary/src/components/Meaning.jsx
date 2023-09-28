@@ -22,7 +22,7 @@ const Meanings = ({ meaning }) => {
             {isOpen ? <ul className=" meaning__definitions"> {meaning.definitions.map((definition, idx) => <Definitions key={idx} definition={definition} />)}</ul> : null}
 
             <button className={darkMode ? `meaning__button` : `meaning-dark__button`} onClick={() => { setShowSynonyms(!showSynonyms) }}>Show Synonyms</button>
-            {showSynonyms ? <ol className='result__synonyms'>{meaning.synonyms.map((synonyms, idx) => <li key={idx}>{synonyms}</li>)} </ol> : null}
+            {showSynonyms ? <ol className='result__synonyms'>{meaning.synonyms.length > 0? meaning.synonyms.map((synonyms, idx) => <li key={idx}>{synonyms}</li> ): 'No synonyms in this dictionary'} </ol> : null}
 
             {meaning.antonyms.length > 0 ? <article className="meaning__antonyms">Antonyms:
                 <ol>{meaning.antonyms.map((antonyms, idx) => <li key={idx}>{antonyms}</li>)}</ol>
